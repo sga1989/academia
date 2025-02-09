@@ -3,6 +3,10 @@
     padding: 0;
     box-sizing: border-box;
 }
+body{
+    font-family:'Montserrat', Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
 header{ /*Configurações do header da página */
     height: 100px;
     background-color: #000;
@@ -18,16 +22,234 @@ header{ /*Configurações do header da página */
 .logo{ /*Configuração da logo*/
     width: 100px;
 }
-.menu{
-    flex: 1;
-    display: flex;
-    justify-content: flex-end;
-}
 .logoimg{
     width: 80px;
     height: 80px;
 }
 .logoimg img{
     width: 80px;
-    height: 80px;
+    height: 80px;border-radius: 40px;
+}
+.menu{
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;    
+}
+.menu ul,
+.menu li{
+    list-style: none;
+}
+.menu ul {
+    display: flex;
+}
+.menu li a{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100px;
+    align-items: center;
+    border-bottom: 5px solid #000;
+}
+.menu li a:hover,
+.menu .active a{
+    border-bottom: 5px solid #b28756;
+    color: gray ;
+}
+
+/*Área do css do banner omde será feitas
+as configurações necessárias nessa section*/
+/*
+.banner{
+    height: calc(100vh - 100px);
+    background-color: #333;
+    background-image: url('/assets/images/bg.jpg');
+    background-size: cover;
+    background-position:center;
+    overflow: hidden;
+}
+.banner .sliders{
+   width: 1000vw;
+   height: 100%;
+}
+.banner .slide{
+    width: 100vw;
+    height: 100%;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.8)
+}
+.banner .slidearea{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+}
+.banner .slidearea h1{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 55px;
+}
+.banner .slidearea h1 span{
+    color: #b28756 ;
+}
+.banner .slidearea h2{
+    text-transform: uppercase;
+    margin-top: 20px;
+
+}
+.banner .slidearea a{
+    display: block;
+    background-color: #b28756;
+    color: #FFF;
+    text-transform: uppercase;   
+    font-size: 13px;
+    margin-top: 20px;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+.banner .sliders-pointers{
+    width: 100vw;
+    height: 20px;
+    position: absolute;
+    margin-top: -45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.banner .pointers{
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b28756;
+    border-radius: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.banner .pointers.active{
+    background-color: #b28756;
+}
+/*Parte de modificação */
+.banner {
+    height: calc(100vh - 100px);
+    background-color: #333;
+    background-image: url('/assets/images/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.banner .sliders {
+    display: flex;
+    width: 500vw; /* Ajustado para 5 slides */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.banner .slide {
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.banner .slidearea {
+    text-align: center;
+    color: #FFF;
+}
+
+.banner .slidearea h1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 55px;
+}
+
+.banner .slidearea h1 span {
+    color: #b28756;
+}
+
+.banner .slidearea h2 {
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.banner .slidearea a {
+    display: block;
+    background-color: #b28756;
+    color: #FFF;
+    text-transform: uppercase;   
+    font-size: 13px;
+    margin-top: 20px;
+    font-weight: 600;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+/* Ajuste para imagens dentro dos slides */
+.banner .slide img {
+    width: 900px;
+    height: 520px;
+    object-fit: cover; /* Mantém a proporção da imagem cortando o excesso */
+    border-radius: 10px;
+}
+
+/* Pointers (indicadores) */
+.banner .sliders-pointers {
+    width: 100vw;
+    height: 20px;
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .slide img {
+    width: 900px;
+    height: 520px;
+    object-fit: cover; /* Mantém a proporção da imagem cortando o excesso */
+    border-radius: 10px;
+    opacity: 0.2; /* Define a transparência da imagem (0.0 = totalmente transparente, 1.0 = totalmente visível) */
+}
+
+.banner .pointers {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #b28756;
+    border-radius: 40px;
+    margin: 0 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.banner .pointers.active {
+    background-color: #b28756;
+}
+
+/* Botões de navegação */
+button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+button:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
